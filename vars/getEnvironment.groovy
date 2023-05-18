@@ -1,8 +1,8 @@
 
 def call(String settingfile){
     // try{
-        echo settingfiles
-        def json = readJSON file: "$settingfiles"
+        echo settingfile
+        def json = readJSON file: "$settingfile"
         // return json['env']
         return json.env
     // }catch(e){
