@@ -11,7 +11,7 @@ def call(String settingfile){
          echo "$env"
 
         echo "setting file read $env"
-        return json['results']['env']
+        return json['env']
     // }catch(e){
     //      error "Job failure due invalid JSON file." 
     }
