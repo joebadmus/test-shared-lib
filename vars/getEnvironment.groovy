@@ -7,7 +7,8 @@ def call(String settingfile){
         // def jsonData = jsonSlurper.parseText(jsonFile.text)
         echo "$settingfile"
         def json = readJSON(file: "$settingfile")
-	    def env = json['results']['env']
+	    def env = json['env']
+         echo "$env"
 
         echo "setting file read $env"
         return json['results']['env']
