@@ -1,18 +1,10 @@
-import groovy.json.JsonSlurper
 
 def call(String settingfile){
-    // try{
-        // def jsonFile = new File("$settingfile")
-        // def jsonSlurper = new JsonSlurper()
-        // def jsonData = jsonSlurper.parseText(jsonFile.text)
-        echo "$settingfile"
+    try{
         def json = readJSON(file: "$settingfile")
-	    def env = json['env']
-         echo "$env"
-
-        echo "setting file read $env"
-        return json['env']
-    // }catch(e){
-    //      error "Job failure due invalid JSON file." 
+        // return json['env']
+        return json.env
+    }catch(e){
+         error "Job failure due invalid JSON file." 
     }
-// }
+}
