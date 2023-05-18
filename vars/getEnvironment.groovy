@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper
 
 def call(String settingfile){
-    try{
+    // try{
         // def jsonFile = new File("$settingfile")
         // def jsonSlurper = new JsonSlurper()
         // def jsonData = jsonSlurper.parseText(jsonFile.text)
@@ -10,7 +10,7 @@ def call(String settingfile){
 
         echo "setting file read $env"
         return json['results']['env']
-    }catch(e){
-         error "Job failure due invalid JSON file." 
+    // }catch(e){
+    //      error "Job failure due invalid JSON file." 
     }
 }
