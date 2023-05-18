@@ -1,7 +1,7 @@
 
 def call(String settingfile){
     try{
-        def json = readJSON(file: "$settingfile")
+        def json = readJSON file: settingfiles
         // return json['env']
         return json.env
     }catch(e){
