@@ -2,7 +2,7 @@
 def call(String settingfile){
     try{
         echo settingfiles
-        def json = readJSON text: "$settingfiles"
+        def json = readJSON file: "$settingfiles"
         // return json['env']
         return json.env
     }catch(e){
