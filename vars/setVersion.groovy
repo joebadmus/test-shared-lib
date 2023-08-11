@@ -5,7 +5,7 @@ def call(String branch) {
     sh 'ls -ltr'
     sh 'pwd'
     
-    def currentVersion = readFile file: "version.txt"
+    def currentVersion = readFile file "version.txt"
     def versionParts = currentVersion.split('\\.')
     def majorVersion = versionParts[0].toInteger()
     def minorVersion = versionParts[1].toInteger()
