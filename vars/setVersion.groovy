@@ -26,6 +26,7 @@ def call(String branch) {
     echo "New version: ${newVersion}"
 
     sh '''
+    git config --global user.email "jenkins@example.com"
     git add .
     git commit -m "Bump version to ${newVersion}"
     git push
