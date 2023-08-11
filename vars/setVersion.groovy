@@ -25,9 +25,11 @@ def call(String branch) {
     writeFile file: 'version.txt', text: newVersion
     echo "New version: ${newVersion}"
 
+    sh '''
     git add .
     git commit -m "Bump version to ${newVersion}"
     git push
+    '''
     // commitNewVersion(newVersion)
 
     // return newVersion
