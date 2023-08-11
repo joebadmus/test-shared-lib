@@ -24,5 +24,24 @@ def call(String branch) {
     def newVersion = "${majorVersion}.${minorVersion}.${patchVersion}"
     writeFile file: 'version.txt', text: newVersion
     echo "New version: ${newVersion}"
+    commitNewVersion(newVersion)
+
     // return newVersion
+}
+
+def commitNewVersion(newVersion) {
+    // Clone the repository
+    // git clone 'https://github.com/your/repo.git'
+    // git clone "${env.GIT_URL}"
+
+    // Checkout the main branch
+    // git checkout master
+
+    // Update the version file with the new version
+    // writeVersionToFileOrEnv(newVersion)
+
+    // Commit the changes
+    git add .
+    git commit -m "Bump version to ${newVersion}"
+    git push
 }
