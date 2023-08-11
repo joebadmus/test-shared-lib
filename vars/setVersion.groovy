@@ -24,6 +24,5 @@ def call(String branch) {
     def newVersion = "${majorVersion}.${minorVersion}.${patchVersion}"
     writeFile file: 'version.txt', text: newVersion
     echo "New version: ${newVersion}"
-
-    return currentVersion
+    // return newVersion
 }
