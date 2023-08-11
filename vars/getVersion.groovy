@@ -1,5 +1,5 @@
 
-def call(String settingfile) {
+def call() {
     echo "Getting cuurent Version...."
     sh 'ls -la'
     def currentVersion = readFile file: "version.txt"
