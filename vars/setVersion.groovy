@@ -1,6 +1,9 @@
 
 def call(String branch) {
     echo "Setting new Version for ${branch}.."
+
+    sh 'ls -ltr'
+    sh 'pwd'
     
     def currentVersion = readFile file: "version.txt"
     def versionParts = currentVersion.split('\\.')
@@ -24,31 +27,4 @@ def call(String branch) {
     def newVersion = "${majorVersion}.${minorVersion}.${patchVersion}"
     writeFile file: 'version.txt', text: newVersion
     echo "New version: ${newVersion}"
-
-    sh '''
-    git config --global user.email "jenkins@example.com"
-    git add .
-    git commit -m "Bump version to ${newVersion}"
-    git push
-    '''
-    // commitNewVersion(newVersion)
-
-    // return newVersion
 }
-
-// def commitNewVersion(newVersion) {
-//     // Clone the repository
-//     // git clone 'https://github.com/your/repo.git'
-//     // git clone "${env.GIT_URL}"
-
-//     // Checkout the main branch
-//     // git checkout master
-
-//     // Update the version file with the new version
-//     // writeVersionToFileOrEnv(newVersion)
-
-//     // Commit the changes
-//     git add .
-//     git commit -m "Bump version to ${newVersion}"
-//     git push
-// }
