@@ -1,6 +1,6 @@
 
 def call(String branch) {
-    echo "Setting new Version..."
+    echo "Setting new Version for ${branch}.."
     
     def currentVersion = readFile file: "version.txt"
     def versionParts = currentVersion.split('\\.')
