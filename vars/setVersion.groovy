@@ -27,11 +27,11 @@ def call(String branch) {
     def newVersion = "${majorVersion}.${minorVersion}.${patchVersion}"
     writeFile file: 'version.txt', text: newVersion
     echo "New version: ${newVersion}"
+    gitCommitNewVersion(branch, newVersion)
 
-    sh '''
-      // Commit the changes
-    git add .
-    git commit -m "Bump version to ${newVersion}"
-    git push
-    '''
+}
+
+def gitCommitNewVersion(String branch, String newVersion) {
+    // Use the Git plugin to commit the new version to the repository
+    git branch: "${branch}" , credentialsId: 'git_user', message: "Bump version to ${newVersion}", push: true
 }
