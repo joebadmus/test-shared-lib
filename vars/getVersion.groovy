@@ -1,9 +1,23 @@
 
 def call() {
     echo "Getting cuurent Version...."
-    sh 'ls -la'
-    // def currentVersion = readFile file: "version.txt"
-    echo "Current version is ${NEW_ENV}" 
+
 
     // return currentVersion
+
+    pipeline {
+    agent any
+
+    stages {
+        stage('Testing purpose'){
+            steps{
+                sh 'ls -la'
+                // def currentVersion = readFile file: "version.txt"
+                echo "New Environment is ${NEW_ENV}" 
+                echo "Environment is ${ENVIRONMENT}" 
+            }
+        }
+    }
+}
+
 }
